@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27017';
+var ObjectID = require('mongodb').ObjectId;
 // const client = new MongoClient(url);
 // const funcOrder = require('./routes/dbOperations/funcOrder');
 app.use(cors());
@@ -17,11 +18,11 @@ MongoClient.connect(url, {poolSize:10, useNewUrlParser: true, useUnifiedTopology
     // const collecName = 'products';
 
     require('./routes/addProd')(db, app);
-    require('./routes/getProd')(db, app);
+    require('./routes/getProd')(db, app, ObjectID);
     require('./routes/getProdCount')(db, app);
     require('./routes/getProdList')(db, app);
-    require('./routes/removeProd')(db, app);
-    require('./routes/updateProd')(db, app);
+    require('./routes/deleteProd')(db, app, ObjectID);
+    require('./routes/updateProd')(db, app, ObjectID);
     require('./routes/validID')(db, app);
 
     require('./listen')(http);
