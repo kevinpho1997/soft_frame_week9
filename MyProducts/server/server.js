@@ -11,10 +11,12 @@ var ObjectID = require('mongodb').ObjectId;
 app.use(cors());
 app.use(bodyParser.json());
 
-MongoClient.connect(url, {poolSize:10, useNewUrlParser: true, useUnifiedTopology: true}, function(err, client){
-    if (err) {return console.log(err)}
+MongoClient.connect(url, {maxPoolSize:50, useNewUrlParser: true, useUnifiedTopology: true}, function(err, client){
+    if (err) {return console.log(err);}
     const dbName = 'mydb';
     const db = client.db(dbName);
+    const PORT = 3000;
+    const server = require('./listen.js');
     // const collecName = 'products';
 
     require('./routes/addProd')(db, app);
@@ -23,9 +25,9 @@ MongoClient.connect(url, {poolSize:10, useNewUrlParser: true, useUnifiedTopology
     require('./routes/getProdList')(db, app);
     require('./routes/deleteProd')(db, app, ObjectID);
     require('./routes/updateProd')(db, app, ObjectID);
-    require('./routes/validID')(db, app);
+    require('./routes/validateID')(db, app);
 
-    require('./listen')(http);
+    server.listen(http, PORT);
 });
 
 // client.connect(function(err) {
