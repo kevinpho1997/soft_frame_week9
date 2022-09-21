@@ -8,6 +8,8 @@ import { AddNewProductComponent } from './add-new-product/add-new-product.compon
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ProductDataService } from './services/product-data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule, 
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
