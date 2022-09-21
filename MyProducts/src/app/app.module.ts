@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { GetAllProductsComponent } from './get-all-products/get-all-products.component';
 import { AddNewProductComponent } from './add-new-product/add-new-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { UpdateProductComponent } from './update-product/update-product.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
