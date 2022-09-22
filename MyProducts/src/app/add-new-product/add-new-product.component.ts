@@ -19,7 +19,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         display: 'none'
       })),
       transition('show => hide', animate('1000ms ease-out')),
-      transition('hide = > show', animate('400ms ease-in'))
+      transition('hide => show', animate('400ms ease-in'))
     ]),
     trigger('noticeState', [
       state('show', style({
@@ -31,7 +31,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         display: 'none'
       })),
       transition('show => hide', animate('1000ms ease-out')),
-      transition('hide = > show', animate('400ms ease-in'))
+      transition('hide => show', animate('400ms ease-in'))
     ])
   ]
 })

@@ -1,1 +1,31 @@
-<p>add-new-product works!</p>
+<div class="container">
+    <form (submit)="addNewProduct($event)">
+        <div class="form-group">
+            <label for="productId">Product ID</label>
+            <input type="number" class="form-control" id="productId" [(ngModel)]="productId" (ngModelChange)="checkValidId($event)" name="productId" placeholder="ID">
+            <div [@iderrorState]="stateName" class="alert alert-warning" id="idErrorMsg" role="alert">{{idErrorMsg}} {{idErrorMsg2}}</div>
+        </div>
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" class="form-control" id="productName" [(ngModel)]="productName" name="productName">
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" id="productDesc" [(ngModel)]="productDesc" name="productDesc"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="number" class="form-control" id="productPrice" [(ngModel)]="productPrice" name="productPrice">
+        </div>
+        <div class="form-group">
+            <label>Units</label>
+            <input type="number" class="form-control" id="productUnits" [(ngModel)]="productUnits" name="productUnits">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-plus-square"></i>Add Product</button>
+        </div>
+        <div [@noticeState]="noticeName" class="btn btn-primary">
+            {{newProductMessage}}
+        </div>
+    </form>
+</div>

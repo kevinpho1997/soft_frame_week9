@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProductDataService } from './services/product-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule, 
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    // BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [ProductDataService],
   bootstrap: [AppComponent]
