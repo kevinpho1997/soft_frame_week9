@@ -20,6 +20,7 @@ export class GetAllProductsComponent implements OnInit {
 
   deleteProduct(id: any) {
     if(confirm("Delete this item?")) {
+      console.log(id);
       this.prodServ.deleteProduct(id).subscribe((data) => {
         this.products = data;
       });

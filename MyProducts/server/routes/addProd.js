@@ -5,9 +5,10 @@ module.exports = function(db,app){
         }
         product = req.body;
         const collection = db.collection('products');
-        collection.find({'id':product.id}.count((err, count)=>{
+        // check for duplicate ids
+        collection.find({'id': product.id}).count((err, count)=>{
             if (count == 0) {
-                collection.inserOne(product, (err, dbRes)=>{
+                collection.insertOne(product, (err, dbRes)=>{
                     if (err) throw err;
                     // sends no. of products inserted to client w/ no error msg
                     let num = dbRes.insertedCount;
@@ -15,8 +16,8 @@ module.exports = function(db,app){
                 });
             } else {
                 // sends error if item already exists
-                res.send({num:0, err:"Duplicate item"})
-            }
-        }));
+                res.send({num:0, err:"Duplicate item"});
+            };
+        });
     });
-}
+};

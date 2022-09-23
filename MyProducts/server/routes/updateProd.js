@@ -1,11 +1,11 @@
-module.exports = function(db, app, ObjectID) {
+module.exports = function(db, app, ObjectId) {
     app.post('/prod/update', function(req, res){
         if (!req.body) {
             return res.sendStatus(400);
         }
         product = req.body;
         // this objectId thing may not be needed if a primary key is being managed by me
-        var objectId = new ObjectID(product.objid);
+        var objectid = new ObjectId(product.objid);
         const collection = db.collection('products');
         collection.updateOne({_id:objectid},{$set: {
             name: product.name, 

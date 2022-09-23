@@ -46,7 +46,7 @@ export class AddNewProductComponent implements OnInit {
   productObjId: string = "";
 
   // ! to ignore the fact no initialisation
-  newProd: Product | undefined;
+  newProd!: Product;
   newProductMessage: string = "";
 
   // errors
