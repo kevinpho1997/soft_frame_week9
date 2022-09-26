@@ -1,4 +1,4 @@
-module.exports = function(db, app, ObjectId) {
+module.exports = function(db, app) {
     // var ObjectId = require('mongodb').ObjectId
     app.post('/prod/delete', function(req, res){
         // console.log("product delete route")

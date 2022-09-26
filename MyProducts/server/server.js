@@ -20,11 +20,11 @@ MongoClient.connect(url, {maxPoolSize:50, useNewUrlParser: true, useUnifiedTopol
     // const collecName = 'products';
 
     require('./routes/addProd')(db, app);
-    require('./routes/getProd')(db, app, ObjectId);
+    // require('./routes/getProd')(db, app, ObjectId);
     require('./routes/getProdCount')(db, app);
     require('./routes/getProdList')(db, app);
-    require('./routes/deleteProd')(db, app, ObjectId);
-    require('./routes/updateProd')(db, app, ObjectId);
+    require('./routes/deleteProd')(db, app);
+    require('./routes/updateProd')(db, app);
     require('./routes/validateID')(db, app);
 
     server.listen(http, PORT);
