@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "testGet": "mocha ./integrationTest/testGet.js"
   },
   "author": "Kevin Pho",
   "license": "ISC",
   "dependencies": {
+    "chai-http": "^4.3.0",
     "express": "^4.18.1",
     "mongodb": "^4.9.1"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
     "mocha": "^10.0.0"
   }
 }

@@ -17,6 +17,7 @@ MongoClient.connect(url, {maxPoolSize:50, useNewUrlParser: true, useUnifiedTopol
     const db = client.db(dbName);
     const PORT = 3000;
     const server = require('./listen.js');
+
     // const collecName = 'products';
 
     require('./routes/addProd')(db, app);
@@ -28,7 +29,10 @@ MongoClient.connect(url, {maxPoolSize:50, useNewUrlParser: true, useUnifiedTopol
     require('./routes/validateID')(db, app);
 
     server.listen(http, PORT);
+
 });
+
+module.exports = app
 
 // client.connect(function(err) {
 //     console.log("Connected to MongoDB");
