@@ -15,28 +15,29 @@ describe('Server integration test', function() {
     after(function() {
         console.log("after test");
     });
-    describe('/product/update', () => {                                            
-        it('it should update a doc (product)', (done) => {
-            chai.request(app)
-                .post('/prod/update').type('form').send({ 'id': 25, 'name': "Test", 'description': 'Test', 'price': 1500, 'units': 20 })
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    console.log("prod/update", res.body);
-                    // res.body.should.be.a('array');
-                    res.body.should.have.property('ok');
-                    done();
-                });
-        });
-    });
-    // describe('/deleteProd', () => {
-    //     it('it should delete a doc (product)', (done) => {
+    // describe('/product/update', () => {                                            
+    //     it('it should update a doc (product)', (done) => {
     //         chai.request(app)
-    //             .post('/prod/delete').type('form').send({'id': 25})
+    //             .post('/prod/update').type('form').send({ 'id': 25, 'name': "Test", 'description': 'Test', 'price': 1500, 'units': 20 })
     //             .end((err, res) => {
     //                 res.should.have.status(200);
-    //                 res.body.should.be.a('array');
+    //                 console.log("prod/update", res.body);
+    //                 // res.body.should.be.a('array');
+    //                 res.body.should.have.property('ok');
     //                 done();
     //             });
     //     });
     // });
+    describe('/deleteProd', () => {
+        it('it should delete a doc (product)', (done) => {
+            chai.request(app)
+                .post('/prod/delete').type('form').send({'productid': 25})
+                .end((err, res) => {
+                    console.log(res.body);
+                    res.should.have.status(200);
+                    res.body.should.be.a('array');
+                    done();
+                });
+        });
+    });
 });
