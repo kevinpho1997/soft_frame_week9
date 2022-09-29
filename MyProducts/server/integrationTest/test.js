@@ -33,14 +33,7 @@ describe('Server integration test', function() {
                 .post('/prod/add').type('form').send({ 'id': 25, 'name': "iPhone", 'description': 'My description', 'price': 1500, 'units': 20 })
                 .end((err, res) => {
                     res.should.have.status(200);
-                    // console.log("res.body: ", res.body);
-                    // res.body.should.have.property('num').to.not.equal(0);
                     res.body.should.have.property('err').to.be.null;
-                    // res.body.should.have.property('id');
-                    // res.body.should.have.property('name');
-                    // res.body.should.have.property('description');
-                    // res.body.should.have.property('price');
-                    // res.body.should.have.property('units');
                     done();
                 });
         });
