@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "testGet": "mocha ./integrationTest/testGet.js"
+    "testGet": "mocha ./integrationTest/testGet.js --exit"
   },
   "author": "Kevin Pho",
   "license": "ISC",
