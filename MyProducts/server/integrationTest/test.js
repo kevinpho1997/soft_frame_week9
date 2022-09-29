@@ -27,7 +27,7 @@ describe('Server integration test', function() {
                 });
         });
     });
-    describe('/addProd', () => {
+    describe('/addProd', () => {                                            
         it('it should insert a doc (product)', (done) => {
             chai.request(app)
                 .post('/prod/add').type('form').send({ 'id': 25, 'name': "iPhone", 'description': 'My description', 'price': 1500, 'units': 20 })

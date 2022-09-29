@@ -13,7 +13,7 @@ module.exports = function(db, app) {
             price: product.description,
             units: product.units
         }},()=>{
-            res.send({'ok':product.objid});
+            res.send({'ok':product.id});
         });
     });
 }
