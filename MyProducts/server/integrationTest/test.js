@@ -58,4 +58,17 @@ describe('Server integration test', function() {
                 });
         });
     });
+    describe('/validateID', () => {                                            
+        it('it should return a valid ID', (done) => {
+            chai.request(app)
+            .post('/validateID')
+                .end((err, res) => {
+                    console.log('res.body = ', res.body);
+                    res.should.have.status(200);
+                    res.body.should.have.property('success');
+                    // res.body.should.have.property('topnum');
+                    done();
+                });
+        });
+    });
 });
