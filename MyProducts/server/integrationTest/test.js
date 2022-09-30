@@ -14,6 +14,7 @@ describe('Server integration test', function() {
     // The function passed to after() is called after running the test cases.
     after(function() {
         console.log("after test");
+        // run mongo here to delete things in database
     });
     describe('/getProdList', () => {
         it('it should GET all products', (done) => {
@@ -32,7 +33,9 @@ describe('Server integration test', function() {
             chai.request(app)
                 .post('/prod/add').type('form').send({ 'id': 25, 'name': "iPhone", 'description': 'My description', 'price': 1500, 'units': 20 })
                 .end((err, res) => {
+                    // test 1
                     res.should.have.status(200);
+                    //  test 2
                     res.body.should.have.property('err').to.be.null;
                     done();
                 });
