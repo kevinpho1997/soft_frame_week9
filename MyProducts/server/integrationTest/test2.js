@@ -23,7 +23,7 @@ describe('Server integration test', function() {
     //                 res.should.have.status(200);
     //                 console.log("prod/update", res.body);
     //                 // res.body.should.be.a('array');
-    //                 res.body.should.have.property('ok');
+    //                 res.body.should.have.property('ok').to.be.equal(25);
     //                 done();
     //             });
     //     });

@@ -47,4 +47,15 @@ describe('Server integration test', function() {
                 });
         });
     });
+    describe('/prod/count', () => {                                            
+        it('it should return product count', (done) => {
+            chai.request(app)
+            .get('/prod/count')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.have.property('count');
+                    done();
+                });
+        });
+    });
 });
